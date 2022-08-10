@@ -33,14 +33,14 @@ jobs:
     - name: Clone source code
       run: |
         git clone --depth=1 https://github.com/Dante-Huang/padavan-4.4.git /opt/padavan-4.4
-        cd /opt/rt-n56u/toolchain-mipsel
+        cd /opt/padavan-4.4/toolchain-mipsel
         sh dl_toolchain.sh
         mkdir -p /opt/images/
     - name: Build Firmware
       env:
         TNAME: HiWiFi
       run: |
-        cd /opt/rt-n56u/trunk
+        cd /opt/padavan-4.4/trunk
         if [ ! -f configs/templates/$TNAME.config ] ; then
         echo "configs/templates/$TNAME.config not found "
         exit 1
